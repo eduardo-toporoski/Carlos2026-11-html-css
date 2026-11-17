@@ -1,0 +1,198 @@
+/* TEMA 4 — POP / BRUTALISTA
+   Cores berrantes, bordas grossas, sombras sem desfoque e cartões levemente
+   tortos. O oposto do tema corporativo. */
+
+:root {
+  --amarelo: #ffe03d;
+  --rosa: #ff5fa2;
+  --azul: #3d7bff;
+  --verde: #3ddc97;
+  --preto: #111;
+  --branco: #fff;
+  --borda: 3px solid var(--preto);
+  --sombra: 6px 6px 0 var(--preto);
+}
+
+* { box-sizing: border-box; }
+
+body.pagina {
+  margin: 0;
+  background: var(--amarelo);
+  color: var(--preto);
+  font-family: "Trebuchet MS", "Arial Rounded MT Bold", Verdana, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* Cabeçalho */
+.topo {
+  background: var(--rosa);
+  border-bottom: var(--borda);
+  padding: 2rem 1.5rem 1.2rem;
+  text-align: center;
+}
+.topo h1 {
+  display: inline-block;
+  margin: 0;
+  padding: .2em .6em;
+  background: var(--branco);
+  border: var(--borda);
+  box-shadow: var(--sombra);
+  font-family: Impact, "Arial Black", sans-serif;
+  font-size: clamp(2.2rem, 7vw, 3.8rem);
+  text-transform: uppercase;
+  transform: rotate(-2deg);
+}
+.topo p { font-weight: 700; margin: 1.2rem 0; }
+
+/* Menu: botões */
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .7rem;
+}
+.menu a {
+  display: block;
+  padding: .4rem 1rem;
+  background: var(--branco);
+  border: var(--borda);
+  box-shadow: 4px 4px 0 var(--preto);
+  color: var(--preto);
+  font-weight: 700;
+  text-decoration: none;
+}
+.menu a:hover { background: var(--verde); transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--preto); }
+
+/* Conteúdo */
+.principal { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
+.secao {
+  background: var(--branco);
+  border: var(--borda);
+  box-shadow: var(--sombra);
+  padding: 1.2rem 1.6rem 1.6rem;
+  margin-bottom: 2.2rem;
+}
+.secao h2 {
+  display: inline-block;
+  margin: -2rem 0 1rem -2.2rem;
+  padding: .2em .7em;
+  background: var(--azul);
+  color: var(--branco);
+  border: var(--borda);
+  font-family: Impact, "Arial Black", sans-serif;
+  font-weight: 400;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  transform: rotate(-1.5deg);
+}
+.secao h3 { margin: 1.6rem 0 .4rem; border-bottom: 4px solid var(--rosa); display: inline-block; }
+h4, h5, h6 { margin: 1rem 0 .3rem; }
+
+.destaque { font-size: 1.25rem; font-weight: 700; }
+.divisor { border: 0; border-top: 4px dashed var(--preto); margin: 1.5rem 0; }
+a { color: var(--azul); font-weight: 700; }
+a:hover { background: var(--amarelo); color: var(--preto); }
+
+/* Texto */
+mark { background: var(--rosa); padding: 0 .25em; }
+del { background: #ffd0d0; }
+ins { background: #c8f7e0; text-decoration: none; }
+code, kbd, samp, var { font-family: "Courier New", monospace; font-weight: 700; }
+code { background: var(--amarelo); border: 2px solid var(--preto); padding: 0 .3em; }
+kbd { background: var(--branco); border: 2px solid var(--preto); box-shadow: 2px 2px 0 var(--preto); padding: 0 .4em; }
+samp { background: var(--preto); color: var(--verde); padding: 0 .4em; }
+.etiqueta { background: var(--verde); border: 2px solid var(--preto); padding: .05em .7em; border-radius: 99px; font-weight: 700; }
+
+/* Listas */
+li::marker { color: var(--rosa); font-weight: 700; }
+dt { font-weight: 700; background: var(--amarelo); display: inline-block; padding: 0 .5em; border: 2px solid var(--preto); margin-top: .8rem; }
+dd { margin: .3rem 0 0 1.5rem; }
+
+/* Links, botão, mídia */
+.botao {
+  display: inline-block;
+  background: var(--verde);
+  color: var(--preto);
+  border: var(--borda);
+  box-shadow: 5px 5px 0 var(--preto);
+  padding: .5rem 1.3rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.botao:hover { background: var(--rosa); transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--preto); }
+.figura { margin: 1rem 0; display: inline-block; border: var(--borda); box-shadow: var(--sombra); background: var(--branco); transform: rotate(1deg); }
+.figura img { display: block; max-width: 100%; height: auto; }
+.figura figcaption { padding: .5rem .8rem; border-top: var(--borda); background: var(--amarelo); font-size: .9rem; }
+.moldura { border: var(--borda); box-shadow: 4px 4px 0 var(--preto); }
+
+/* Tabela */
+.tabela { width: 100%; border-collapse: collapse; border: var(--borda); }
+.tabela caption { font-weight: 700; padding-bottom: .5rem; text-align: left; }
+.tabela th { background: var(--preto); color: var(--amarelo); text-align: left; }
+.tabela th, .tabela td { padding: .5rem .8rem; border: 2px solid var(--preto); }
+.tabela tbody tr:nth-child(odd) { background: #fff6bf; }
+.tabela tbody tr:hover { background: #ffd0e5; }
+.tabela tfoot td { background: var(--verde); font-weight: 700; }
+
+/* Blocos */
+.citacao {
+  margin: 1.2rem 0;
+  padding: .4rem 1.5rem;
+  background: var(--rosa);
+  border: var(--borda);
+  box-shadow: var(--sombra);
+  font-weight: 700;
+  transform: rotate(-.7deg);
+}
+.citacao footer { font-size: .9rem; font-weight: 400; }
+.codigo {
+  background: var(--preto);
+  color: var(--verde);
+  border: var(--borda);
+  box-shadow: 5px 5px 0 var(--rosa);
+  padding: 1rem;
+  overflow-x: auto;
+}
+.codigo code { background: none; border: 0; color: inherit; }
+.cartoes { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.4rem; margin-top: 1rem; }
+.cartao { border: var(--borda); box-shadow: var(--sombra); padding: .2rem 1rem 1rem; }
+.cartao:nth-child(1) { background: #ffd0e5; transform: rotate(-1.5deg); }
+.cartao:nth-child(2) { background: #cfe0ff; transform: rotate(1deg); }
+.cartao:nth-child(3) { background: #c8f7e0; transform: rotate(-.5deg); }
+.icone { color: var(--azul); }
+
+/* Interativos */
+.sanfona { border: var(--borda); background: var(--amarelo); padding: .6rem 1rem; }
+.sanfona summary { cursor: pointer; font-weight: 700; }
+progress, meter { width: 220px; height: 1.2rem; vertical-align: middle; accent-color: var(--rosa); }
+
+/* Lateral */
+.lateral {
+  background: var(--verde);
+  border: var(--borda);
+  box-shadow: var(--sombra);
+  padding: .2rem 1.5rem 1.2rem;
+  transform: rotate(.8deg);
+}
+.lateral h2 { font-family: Impact, "Arial Black", sans-serif; font-weight: 400; text-transform: uppercase; }
+
+/* Rodapé */
+.rodape {
+  background: var(--preto);
+  color: var(--amarelo);
+  border-top: var(--borda);
+  padding: 1.5rem 1rem 2rem;
+  text-align: center;
+}
+.rodape a { color: var(--rosa); }
+.rodape a:hover { background: var(--rosa); color: var(--preto); }
+.rodape address { font-style: normal; margin: .8rem 0; }
+.rodape ul { list-style: none; padding: 0; display: flex; gap: 1.5rem; justify-content: center; }
+
+@media (max-width: 640px) {
+  .secao h2 { margin-left: -.5rem; }
+}

@@ -1,0 +1,178 @@
+/* TEMA 1 — CORPORATIVO
+   Fundo claro, azul institucional, fonte sem serifa e seções em cartões. */
+
+:root {
+  --azul: #0b3d91;
+  --azul-escuro: #072a66;
+  --vermelho: #d3202f;
+  --fundo: #eef2f8;
+  --papel: #ffffff;
+  --texto: #1c2333;
+  --suave: #5b6578;
+  --linha: #d5dbe7;
+}
+
+* { box-sizing: border-box; }
+
+body.pagina {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.65;
+  color: var(--texto);
+  background: var(--fundo);
+}
+
+/* Cabeçalho */
+.topo {
+  background: var(--azul);
+  color: #fff;
+  padding: 2.5rem 1.5rem 0;
+  text-align: center;
+  border-bottom: 5px solid var(--vermelho);
+}
+.topo h1 { margin: 0; font-size: 2.4rem; font-weight: 700; }
+.topo p { margin: .3rem 0 1.5rem; opacity: .85; }
+
+/* Menu */
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .25rem;
+}
+.menu a {
+  display: block;
+  padding: .8rem 1.1rem;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px 6px 0 0;
+}
+.menu a:hover { background: var(--azul-escuro); }
+
+/* Conteúdo */
+.principal {
+  max-width: 920px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+.secao {
+  background: var(--papel);
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  border-left: 5px solid var(--azul);
+  box-shadow: 0 1px 4px rgba(20, 40, 90, .12);
+}
+.secao h2 { margin-top: 0; color: var(--azul); }
+.secao h3 { color: var(--azul-escuro); margin-top: 1.8rem; }
+h4, h5, h6 { margin: 1rem 0 .3rem; }
+
+.destaque { font-size: 1.2rem; color: var(--azul-escuro); }
+.divisor { border: 0; border-top: 1px solid var(--linha); margin: 1.5rem 0; }
+a { color: var(--azul); }
+
+/* Texto */
+mark { background: #ffe58a; padding: 0 .2em; }
+del { color: var(--vermelho); }
+ins { color: #1a7f45; text-decoration: none; border-bottom: 2px solid #1a7f45; }
+code, kbd, samp, var {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: .92em;
+}
+code { background: #e8edf7; padding: .1em .35em; border-radius: 4px; }
+kbd {
+  background: #fff;
+  border: 1px solid var(--linha);
+  border-bottom-width: 3px;
+  border-radius: 4px;
+  padding: .05em .45em;
+}
+samp { background: #14213d; color: #9fe3b5; padding: .1em .4em; border-radius: 4px; }
+.etiqueta {
+  background: var(--azul);
+  color: #fff;
+  padding: .1em .6em;
+  border-radius: 99px;
+  font-size: .85em;
+}
+
+/* Listas */
+dt { font-weight: 700; color: var(--azul); margin-top: .8rem; }
+dd { margin-left: 1.5rem; }
+
+/* Links, botão, mídia */
+.botao {
+  display: inline-block;
+  background: var(--vermelho);
+  color: #fff;
+  padding: .6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+}
+.botao:hover { background: #a8161f; }
+.figura { margin: 1rem 0; }
+.figura img { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--linha); }
+.figura figcaption { color: var(--suave); font-size: .9rem; margin-top: .4rem; }
+.moldura { border: 1px solid var(--linha); border-radius: 8px; }
+
+/* Tabela */
+.tabela { width: 100%; border-collapse: collapse; }
+.tabela caption { text-align: left; font-weight: 700; padding-bottom: .5rem; color: var(--suave); }
+.tabela th { background: var(--azul); color: #fff; text-align: left; }
+.tabela th, .tabela td { padding: .65rem .8rem; border: 1px solid var(--linha); }
+.tabela tbody tr:nth-child(even) { background: #f4f7fc; }
+.tabela tfoot td { background: var(--fundo); font-weight: 700; }
+
+/* Blocos */
+.citacao {
+  margin: 1rem 0;
+  padding: .5rem 1.5rem;
+  border-left: 4px solid var(--vermelho);
+  background: #fbf3f4;
+}
+.citacao footer { color: var(--suave); font-size: .9rem; }
+.codigo {
+  background: #14213d;
+  color: #e6edf8;
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+.codigo code { background: none; padding: 0; }
+.cartoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+.cartao { border: 1px solid var(--linha); border-top: 4px solid var(--azul); border-radius: 8px; padding: .5rem 1rem 1rem; }
+.cartao h4 { margin-top: .6rem; color: var(--azul); }
+.icone { color: var(--azul); }
+
+/* Interativos */
+.sanfona { border: 1px solid var(--linha); border-radius: 8px; padding: .7rem 1rem; }
+.sanfona summary { cursor: pointer; font-weight: 700; color: var(--azul); }
+progress, meter { width: 220px; vertical-align: middle; }
+
+/* Lateral */
+.lateral {
+  background: #fff7e0;
+  border: 1px solid #f0d88a;
+  border-radius: 8px;
+  padding: .5rem 1.5rem 1rem;
+}
+
+/* Rodapé */
+.rodape {
+  background: var(--azul-escuro);
+  color: #d8e2f5;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: .95rem;
+}
+.rodape a { color: #fff; }
+.rodape address { font-style: normal; margin: .8rem 0; }
+.rodape ul { list-style: none; padding: 0; display: flex; gap: 1.5rem; justify-content: center; }

@@ -1,0 +1,187 @@
+/* TEMA 2 — JORNAL
+   Fonte com serifa, papel amarelado, filetes pretos, coluna única centralizada
+   e texto justificado. Quase sem cor. */
+
+:root {
+  --papel: #f7f3e8;
+  --tinta: #1a1a1a;
+  --suave: #555;
+  --filete: #1a1a1a;
+}
+
+* { box-sizing: border-box; }
+
+body.pagina {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* Cabeçalho: título de capa */
+.topo {
+  max-width: 820px;
+  margin: 2rem auto 0;
+  padding: 0 1rem;
+  text-align: center;
+  border-bottom: 4px double var(--filete);
+}
+.topo h1 {
+  margin: 0;
+  font-size: clamp(2.6rem, 8vw, 4.6rem);
+  font-weight: 900;
+  letter-spacing: -.02em;
+  line-height: 1.05;
+}
+.topo p {
+  margin: .5rem 0 1rem;
+  font-style: italic;
+  color: var(--suave);
+}
+
+/* Menu: faixa fina entre dois filetes */
+.menu {
+  border-top: 1px solid var(--filete);
+  padding: .5rem 0;
+}
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .3rem 1.6rem;
+  font-size: .95rem;
+}
+.menu a { color: var(--tinta); text-decoration: none; }
+.menu a:hover { text-decoration: underline; }
+
+/* Conteúdo */
+.principal {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.secao { padding: 1.2rem 0; border-bottom: 1px solid var(--filete); }
+.secao h2 {
+  font-size: 2rem;
+  margin: 0 0 .8rem;
+  padding-bottom: .3rem;
+  border-bottom: 3px solid var(--filete);
+}
+.secao h3 { font-size: 1.3rem; font-style: italic; margin: 1.6rem 0 .3rem; }
+h4 { font-size: 1.1rem; margin: 1rem 0 .2rem; }
+h5, h6 { font-size: 1rem; margin: .8rem 0 .2rem; }
+p { text-align: justify; hyphens: auto; }
+
+/* Primeira letra grande no primeiro parágrafo */
+.destaque { font-size: 1.25rem; }
+.destaque::first-letter {
+  float: left;
+  font-size: 4.2rem;
+  line-height: .85;
+  padding: .25rem .5rem 0 0;
+  font-weight: 900;
+}
+.divisor { border: 0; border-top: 1px dashed var(--filete); margin: 1.5rem 0; }
+a { color: var(--tinta); text-underline-offset: 3px; }
+
+/* Texto */
+mark { background: #ffe14d; padding: 0 .15em; }
+del { color: var(--suave); }
+ins { text-decoration: underline double; }
+code, kbd, samp, var { font-family: "Courier New", monospace; font-size: .9em; }
+code { background: rgba(0, 0, 0, .07); padding: 0 .3em; }
+kbd { border: 1px solid var(--filete); padding: 0 .35em; }
+samp { border-bottom: 1px dotted var(--filete); }
+.etiqueta { font-variant: small-caps; border: 1px solid var(--filete); padding: 0 .5em; }
+
+/* Listas */
+li { margin: .2rem 0; }
+dt { font-weight: 700; margin-top: .6rem; }
+dd { margin-left: 1.5rem; font-style: italic; }
+
+/* Links, botão, mídia */
+.botao {
+  display: inline-block;
+  padding: .4rem 1rem;
+  border: 2px solid var(--filete);
+  text-decoration: none;
+  font-weight: 700;
+}
+.botao:hover { background: var(--tinta); color: var(--papel); }
+.figura { margin: 1.2rem 0; text-align: center; }
+.figura img {
+  max-width: 100%;
+  height: auto;
+  filter: grayscale(1) contrast(1.1);
+  border: 1px solid var(--filete);
+  padding: 6px;
+  background: #fff;
+}
+.figura figcaption { font-size: .9rem; font-style: italic; color: var(--suave); margin-top: .4rem; }
+.moldura { border: 1px solid var(--filete); }
+
+/* Tabela: só filetes horizontais */
+.tabela { width: 100%; border-collapse: collapse; font-size: 1rem; }
+.tabela caption { font-style: italic; padding-bottom: .5rem; text-align: left; }
+.tabela thead th { border-top: 3px solid var(--filete); border-bottom: 1px solid var(--filete); text-align: left; padding: .4rem; }
+.tabela td, .tabela tbody th { padding: .4rem; border-bottom: 1px solid #bbb; text-align: left; }
+.tabela tfoot td { border-top: 3px double var(--filete); font-weight: 700; }
+
+/* Blocos */
+.citacao {
+  margin: 1.5rem 2rem;
+  font-size: 1.3rem;
+  font-style: italic;
+  border-top: 1px solid var(--filete);
+  border-bottom: 1px solid var(--filete);
+  padding: .5rem 0;
+}
+.citacao footer { font-size: .9rem; font-style: normal; text-align: right; }
+.codigo {
+  background: #ebe5d2;
+  border: 1px solid var(--filete);
+  padding: 1rem;
+  overflow-x: auto;
+  font-size: .9rem;
+}
+.codigo code { background: none; }
+
+/* Artigos em colunas separadas por filete */
+.cartoes { display: grid; grid-template-columns: repeat(3, 1fr); }
+.cartao { padding: 0 1rem; border-left: 1px solid var(--filete); }
+.cartao:first-child { border-left: 0; padding-left: 0; }
+.cartao h4 { margin-top: 0; }
+.icone { color: var(--tinta); }
+
+/* Interativos */
+.sanfona { border: 1px solid var(--filete); padding: .5rem 1rem; }
+.sanfona summary { cursor: pointer; font-weight: 700; }
+progress, meter { width: 220px; vertical-align: middle; }
+
+/* Lateral: caixa com moldura dupla */
+.lateral { margin: 1.5rem 0; padding: 0 1.2rem 1rem; border: 4px double var(--filete); }
+.lateral h2 { font-size: 1.4rem; }
+
+/* Rodapé */
+.rodape {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 1rem 1rem 3rem;
+  border-top: 4px double var(--filete);
+  text-align: center;
+  font-size: .95rem;
+}
+.rodape p { text-align: center; }
+.rodape address { margin: .6rem 0; }
+.rodape ul { list-style: none; padding: 0; display: flex; justify-content: center; gap: 1.5rem; }
+
+@media (max-width: 640px) {
+  .cartoes { grid-template-columns: 1fr; }
+  .cartao { border-left: 0; padding: 0; }
+  p { text-align: left; }
+}

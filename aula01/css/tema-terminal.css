@@ -1,0 +1,150 @@
+/* TEMA 3 — TERMINAL
+   Fundo escuro, texto âmbar, fonte monoespaçada e menu fixo na lateral esquerda.
+   Mostra que o CSS também muda o LAYOUT, não só as cores. */
+
+:root {
+  --fundo: #14100a;
+  --painel: #1e1810;
+  --ambar: #ffb000;
+  --ambar-suave: #c98a00;
+  --texto: #f0dfb8;
+  --verde: #7fd18b;
+  --vermelho: #ff6b57;
+}
+
+* { box-sizing: border-box; }
+
+body.pagina {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: "Cascadia Mono", Consolas, "Courier New", monospace;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+/* Cabeçalho + menu viram uma barra lateral fixa */
+.topo {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 250px;
+  padding: 1.5rem 1.2rem;
+  background: var(--painel);
+  border-right: 1px solid var(--ambar-suave);
+  overflow-y: auto;
+}
+.topo h1 { margin: 0; font-size: 1.3rem; color: var(--ambar); }
+.topo h1::before { content: "$ "; color: var(--verde); }
+.topo p { color: var(--ambar-suave); font-size: .85rem; margin: .4rem 0 1.5rem; }
+.menu ul { list-style: none; margin: 0; padding: 0; }
+.menu a {
+  display: block;
+  padding: .2rem 0;
+  color: var(--texto);
+  text-decoration: none;
+}
+.menu a::before { content: "> "; color: var(--ambar-suave); }
+.menu a:hover { color: var(--ambar); }
+.menu a:hover::before { color: var(--ambar); }
+
+/* Conteúdo ao lado da barra */
+.principal { margin-left: 250px; padding: 2rem; max-width: 960px; }
+.secao { margin-bottom: 2.5rem; }
+.secao h2 {
+  color: var(--ambar);
+  font-size: 1.4rem;
+  border-bottom: 1px dashed var(--ambar-suave);
+  padding-bottom: .3rem;
+}
+.secao h2::before { content: "## "; color: var(--ambar-suave); }
+.secao h3 { color: var(--verde); font-size: 1.05rem; margin-top: 1.8rem; }
+.secao h3::before { content: "### "; opacity: .6; }
+h4, h5, h6 { color: var(--ambar); margin: 1rem 0 .3rem; font-size: 1rem; }
+
+.destaque { color: var(--ambar); font-size: 1.1rem; }
+.divisor { border: 0; border-top: 1px dashed var(--ambar-suave); margin: 1.5rem 0; }
+a { color: var(--verde); }
+a:hover { background: var(--verde); color: var(--fundo); }
+
+/* Texto */
+mark { background: var(--ambar); color: var(--fundo); padding: 0 .3em; }
+del { color: var(--vermelho); }
+ins { color: var(--verde); text-decoration: none; }
+code { color: var(--verde); }
+code::before, code::after { content: "`"; opacity: .5; }
+kbd { border: 1px solid var(--ambar-suave); border-radius: 3px; padding: 0 .4em; color: var(--ambar); }
+samp { color: var(--fundo); background: var(--verde); padding: 0 .4em; }
+.etiqueta { border: 1px solid var(--ambar); color: var(--ambar); padding: 0 .5em; }
+q, cite { color: var(--ambar-suave); }
+
+/* Listas */
+.principal ul { list-style: none; padding-left: 1.2rem; }
+.principal ul li::before { content: "- "; color: var(--ambar-suave); margin-left: -1rem; }
+ol { padding-left: 2rem; }
+ol li::marker { color: var(--ambar); }
+dt { color: var(--ambar); margin-top: .6rem; }
+dd { margin-left: 1.5rem; }
+
+/* Links, botão, mídia */
+.botao {
+  display: inline-block;
+  border: 1px solid var(--ambar);
+  color: var(--ambar);
+  padding: .3rem 1rem;
+  text-decoration: none;
+}
+.botao:hover { background: var(--ambar); color: var(--fundo); }
+.figura { margin: 1rem 0; }
+.figura img { max-width: 100%; height: auto; border: 1px solid var(--ambar-suave); background: #fff; }
+.figura figcaption { color: var(--ambar-suave); font-size: .85rem; }
+.moldura { border: 1px solid var(--ambar-suave); background: #fff; }
+
+/* Tabela */
+.tabela { width: 100%; border-collapse: collapse; }
+.tabela caption { text-align: left; color: var(--ambar-suave); padding-bottom: .4rem; }
+.tabela th { color: var(--ambar); text-align: left; background: var(--painel); }
+.tabela th, .tabela td { border: 1px solid #5a4417; padding: .45rem .7rem; }
+.tabela tfoot td { color: var(--verde); }
+.tabela tbody tr:hover { background: var(--painel); }
+
+/* Blocos */
+.citacao { margin: 1rem 0; padding: .2rem 1.2rem; border-left: 3px solid var(--ambar); color: var(--ambar-suave); }
+.citacao footer { font-size: .85rem; }
+.codigo {
+  background: #000;
+  border: 1px solid var(--ambar-suave);
+  padding: 1rem;
+  overflow-x: auto;
+  color: var(--verde);
+}
+.codigo code::before, .codigo code::after { content: none; }
+.cartoes { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1rem; }
+.cartao { border: 1px solid var(--ambar-suave); padding: .3rem 1rem 1rem; background: var(--painel); }
+.icone { color: var(--ambar); }
+
+/* Interativos */
+.sanfona { border: 1px solid var(--ambar-suave); padding: .6rem 1rem; }
+.sanfona summary { cursor: pointer; color: var(--ambar); }
+progress, meter { width: 220px; vertical-align: middle; accent-color: var(--ambar); }
+
+/* Lateral */
+.lateral { margin-top: 1rem; border: 1px dashed var(--vermelho); padding: .2rem 1.2rem 1rem; }
+.lateral h2 { color: var(--vermelho); font-size: 1.1rem; }
+.lateral h2::before { content: "! "; }
+
+/* Rodapé */
+.rodape {
+  margin-left: 250px;
+  padding: 1.5rem 2rem 3rem;
+  border-top: 1px dashed var(--ambar-suave);
+  color: var(--ambar-suave);
+  font-size: .9rem;
+}
+.rodape address { font-style: normal; margin: .6rem 0; }
+.rodape ul { list-style: none; padding: 0; display: flex; gap: 1.5rem; }
+
+/* Em telas estreitas a barra lateral volta ao topo */
+@media (max-width: 800px) {
+  .topo { position: static; width: auto; border-right: 0; border-bottom: 1px solid var(--ambar-suave); }
+  .principal, .rodape { margin-left: 0; padding-left: 1rem; padding-right: 1rem; }
+}

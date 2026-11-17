@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício Fetch API - IBGE</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    h1 {
+      color: #1a252f;
+    }
+
+    table {
+      width: 100%;
+      max-width: 800px;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    th {
+      background-color: #0d6efd;
+      color: white;
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    .filtros {
+      margin-bottom: 20px;
+    }
+
+    select {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+
+    .mensagem {
+      font-weight: bold;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+
+    .erro {
+      color: #dc3545;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Estados do Brasil (Dados IBGE)</h1>
+
+  <div class="filtros">
+    <label for="select-regiao">Filtrar por Região: </label>
+    <select id="select-regiao">
+      <option value="todas">Todas</option>
+      <option value="1">Norte</option>
+      <option value="2">Nordeste</option>
+      <option value="3">Sudeste</option>
+      <option value="4">Sul</option>
+      <option value="5">Centro-Oeste</option>
+    </select>
+  </div>
+
+  <p id="mensagem" class="mensagem">Carregando estados...</p>
+
+  <table id="tabela-estados" style="display: none;">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Sigla</th>
+        <th>Nome</th>
+        <th>Região</th>
+      </tr>
+    </thead>
+    <tbody id="corpo-tabela">
+      <!-- Linhas inseridas dinamicamente pelo JavaScript -->
+    </tbody>
+  </table>
+
+  <script>
+    const API_BASE_URL = 'https://servicodados.ibge.gov.br/api/v1/localidades';
+
+    async function buscarEstados(regiaoId = 'todas') {
+      const mensagemEl = document.getElementById('mensagem');
+      const tabelaEl = document.getElementById('tabela-estados');
+      const corpoTabelaEl = document.getElementById('corpo-tabela');
+
+      // Limpa a tabela e mostra mensagem de carregamento
+      corpoTabelaEl.innerHTML = '';
+      tabelaEl.style.display = 'none';
+      mensagemEl.style.display = 'block';
+      mensagemEl.textContent = 'Carregando estados...';
+      mensagemEl.classList.remove('erro');
+
+      let url = `${API_BASE_URL}/estados?orderBy=nome`;
+      if (regiaoId !== 'todas') {
+        url = `${API_BASE_URL}/regioes/${regiaoId}/estados?orderBy=nome`;
+      }
+
+      try {
+        // 1. Faz a requisição à API do IBGE
+        const resposta = await fetch(url);
+
+        // Verifica se a resposta HTTP foi bem-sucedida (status 200-299)
+        if (!resposta.ok) {
+          throw new Error(`Erro na requisição: status ${resposta.status}`);
+        }
+
+        // 2. Converte a resposta em formato JSON
+        const estados = await resposta.json();
+
+        // 3. Itera sobre os dados e constrói as linhas da tabela
+        estados.forEach(estado => {
+          const linha = document.createElement('tr');
+
+          linha.innerHTML = `
+            <td>${estado.id}</td>
+            <td>${estado.sigla}</td>
+            <td>${estado.nome}</td>
+            <td>${estado.regiao.nome}</td>
+          `;
+
+          corpoTabelaEl.appendChild(linha);
+        });
+
+        // Oculta a mensagem de carregamento e exibe a tabela
+        mensagemEl.style.display = 'none';
+        tabelaEl.style.display = 'table';
+
+      } catch (erro) {
+        console.error('Falha ao buscar estados:', erro);
+        mensagemEl.textContent = 'Ocorreu um erro ao carregar a lista de estados.';
+        mensagemEl.classList.add('erro');
+      }
+    }
+
+    // Adiciona o evento de mudança no select
+    document.getElementById('select-regiao').addEventListener('change', (event) => {
+      buscarEstados(event.target.value);
+    });
+
+    // Executa a função após o carregamento da página
+    buscarEstados();
+  </script>
+
+</body>
+</html>
