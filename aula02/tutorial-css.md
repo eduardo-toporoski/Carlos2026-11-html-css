@@ -137,18 +137,7 @@ A cor do `body` era `#333333` e a do `header` é `white`. Dentro do cabeçalho v
 Para mirar apenas nos elementos que estão **dentro** de outro, separe os seletores com **espaço**:
 
 ```css
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 1.5rem;
-}
-
-nav a {
-  color: inherit;
-  text-decoration: none;
-}
+c
 ```
 
 - `nav ul` significa: "todo `ul` que esteja dentro de um `nav`".
