@@ -1,0 +1,110 @@
+body {
+    font-family: Georgia, "Courier New", monospace;
+    line-height: 1.7;
+    color: #333333;
+    margin: 0;
+  }
+  h1 {
+    color: #1d3557;
+    font-size: 4rem;
+  }
+  
+  h2 {
+    color: crimson;
+  }
+
+  h2 {
+    color: #457b9d;
+  }
+
+  h1, h2, h3 {
+    font-family: Georgia, "Times New Roman", serif;
+  }
+  p {
+    max-width: 60ch;
+  }
+  header {
+    background-color: #1d3557;
+    color: white;
+    padding: 1rem 2rem;
+  }
+  /* ===== 4. CLASSES ===== */
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 0 0 0.5rem 0;
+  }
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  
+  .card {
+    background-color: #81c8f4;
+    border: 1px solid #10e6ed;
+    border-radius: 10px;
+    padding: 1.25rem;
+    flex: 1 1 240px;
+  }
+  .destaque {
+    background-color: #d07ff5;
+    border-color: #c93bf9;
+  }
+  .botao {
+    display: inline-block;
+    background-color: #1d3557;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+  
+  .botao:hover {
+    background-color: #81c8f4;
+  }
+  
+  .botao-destaque {
+    display: inline-block;
+    background-color: #563366;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+  .botao-destaque:hover {
+    background-color: #c93bf9;
+    border-radius: 6px;
+  }
+  #topo {
+    border-bottom: 4px solid #0b5906;
+  }
+  
+  #introducao {
+    background-color: #e9f1f7;
+    padding: 2rem;
+  }
+  
+  #atividades {
+    padding: 2rem;
+  }
+  
+  #contato {
+    background-color: #81c8f4;
+    color: #000000;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  #introducao h2 {
+    border-bottom: 2px solid #a8dadc;
+    padding-bottom: 0.3rem;
+  }
+  .titulo-secao {
+    color: #2a9d8f;
+  }
+  #atividades h2 {
+    color: #6a4c93;
+  }
+  
