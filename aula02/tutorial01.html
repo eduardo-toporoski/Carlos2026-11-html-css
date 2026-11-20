@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tutorial 01 — Clube de Programação</title>
+  <!-- Certifique-se de que o nome do arquivo CSS aqui está correto -->
   <link rel="stylesheet" href="tutorial1.css">
 </head>
 <body>
@@ -15,28 +16,31 @@
         <li><a href="#introducao">Início</a></li>
         <li><a href="#atividades">Atividades</a></li>
         <li><a href="#contato">Contato</a></li>
+        <li>
+          <!-- Botão de seleção de tema -->
+          <select id="seletor-tema" style="padding: 0.3rem; border-radius: 4px; border: none; cursor: pointer;">
+            <option value="1">Tema Verde</option>
+            <option value="2">Tema Roxo</option>
+            <option value="3">Tema Vermelho</option>
+          </select>
+        </li>
       </ul>
     </nav>
   </header>
 
   <main>
-
     <div id="introducao">
       <h1>Bem-vindo ao Clube de Programação</h1>
-
       <h2>Quem somos</h2>
       <p>Somos um grupo de estudantes que se encontra toda semana para aprender, praticar e construir pequenos projetos de software. Não é preciso ter experiência: só curiosidade.</p>
-
       <h2>O que fazemos</h2>
       <p>Resolvemos desafios de lógica, criamos páginas web e conversamos sobre tecnologia. Cada encontro termina com algo funcionando na tela.</p>
-
       <h2>Como participar</h2>
       <p>Basta aparecer no laboratório de informática na quarta-feira, depois da aula. Leve seu notebook, se tiver, ou use um dos computadores da escola.</p>
     </div>
 
     <section id="atividades">
       <h2 class="titulo-secao">Atividades da semana</h2>
-
       <div class="cards">
         <article class="card">
           <h3>Lógica de programação</h3>
@@ -45,7 +49,6 @@
         </article>
 
         <article class="card destaque">
-        <!-- <article class=".bg-forest-green-800"> -->
           <h3>Criando páginas web</h3>
           <p>Aprenda a montar uma página com HTML e deixá-la bonita com CSS. É a atividade desta semana!</p>
           <a class="botao" href="#atividades">Saiba mais</a>
@@ -58,13 +61,21 @@
         </article>
       </div>
     </section>
-
   </main>
 
   <footer id="contato">
     <p>Clube de Programação — Laboratório de Informática, sala 12</p>
     <p><small>Encontros às quartas-feiras, depois da aula.</small></p>
   </footer>
+
+  <!-- Script que faz a mágica da troca de cor acontecer -->
+  <script>
+    const seletor = document.getElementById('seletor-tema');
+    
+    seletor.addEventListener('change', function() {
+      document.documentElement.setAttribute('data-theme', this.value);
+    });
+  </script>
 
 </body>
 </html>
